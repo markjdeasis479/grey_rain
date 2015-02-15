@@ -1,0 +1,16 @@
+{% if carousel|length > 0 %}
+<div class="diosa_carousel">
+    <div class="carousel_items">
+        {% for item in carousel %}
+            <div class="slide_item">
+                <a href="{{ item.link }}">
+                    <img src="{{ item.img }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="carousel_pager">
+        <div class="clearB"></div>
+    </div>
+</div>
+{% endif %}

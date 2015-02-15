@@ -1,0 +1,36 @@
+<div class="diosa_dashboard">
+    <div class="diosa_dashboard_nav">
+        <label>ORDERS</label>
+        <ul>
+            <li><a href="#">My cart</a></li>
+            <li><a href="#">My orders</a></li>
+            <li><a href="#">My discount/ voucher</a></li>
+            <li><a href="#">My wishlist</a></li>
+            <li><a href="#">My messages</a></li>
+        </ul>
+        <label>SETTINGS</label>
+        <ul>
+            <li><a href="#">Personal information</a></li>
+            <li><a href="#">Log out</a></li>
+        </ul>
+    </div>
+    <div class="diosa_dashboard_container">
+    {% if show|length == 0 or show == "cart" %}
+        {% if not cart_item or cart_item|length == 0 %}
+            <div class="dashboard_title">My cart</div>
+            <div class="dashboard_msg">Your cart is empty.</div>
+        {% else %}
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <thead>
+                    <td align="center">Quantity</td>
+                    <td align="center">Code</td>
+                    <td align="center">Name</td>
+                    <td align="center">Price</td>
+                    <td align="center">Total Price</td>
+                </thead>
+            </table>
+        {% endif %}
+    {% endif %}
+    </div>
+    <div class="clearB"></div>
+</div>

@@ -1,0 +1,323 @@
+body{
+    font-size:14px;
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding:0;
+    border: 0;
+    background: url('../images/bg_image.gif') repeat;
+    color: rgba(97,​92,​92, 0.7);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(97, 92, 92);
+}
+
+.diosa_home_wrapper {
+    display: block;
+    position: relative;
+    width:100%;
+}
+
+.diosa_wrapper {
+    display: block;
+    position: relative;
+    width: 960px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.diosa_header {
+    display: block;
+    position: relative;
+    width:100%;
+    padding: 10px 0;
+
+}
+
+.diosa_header_left, .diosa_header_right {
+    display:block;
+    position:relative;
+}
+
+.diosa_header_left {
+    float: left;
+}
+
+.diosa_header_right{
+    float:right;
+}
+
+.diosa_user_tool span {
+    font-size: 12px;
+    margin: auto 6px;
+}
+
+.diosa_search_tool {
+    display: block;
+    position: relative;
+}
+
+.diosa_search_tool input {
+    display:block;
+    position: relative;
+    width: 95%;
+    height:25px;
+    border: solid 1px #CCC;
+    margin:5px auto;
+    padding-left: 5px;
+}
+
+.cart_bg {
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    margin-right: 5px;
+}
+
+.user_bg {
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    margin-right: 5px;
+    background-position: -18px 0;
+}
+
+.search_bg {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: 0 -22px;
+    top: 5px;
+    right: 5px;
+}
+
+.diosa_menu {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #588799;
+}
+
+.diosa_menu_item {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 45px;
+    line-height: 45px;
+    float: left;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+.diosa_menu_item:hover {
+    background-color: #E25786;
+}
+
+.diosa_menu_item a {
+    color: #FFF;
+    font-size: 13px;
+}
+
+.diosa_footer {
+    display: block;
+    position: relative;
+    width: 960px;
+    margin: auto;
+    background-color: #FFF;
+}
+
+.diosa_social, .diosa_about {
+    display: block;
+    position: relative;
+    width: 299px;
+    height: 200px;
+    padding: 0 10px;
+    border-right: solid 1px #CCC;
+    float: left;
+    margin: 10px 0;
+}
+
+.diosa_company {
+    display: block;
+    position: relative;
+    width: 300px;
+    padding: 0 10px;
+    float: left;
+    margin: 10px 0;
+}
+
+.social_follow {
+    font-size: 14px;
+    font-weight: bold;
+    color: #454545;
+    margin: 0;
+}
+
+.social_links {
+    display: block;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+
+.fb_link, .twitter_link, .gplus_link {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height:25px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.fb_link {
+    background-position: -34px -25px;
+}
+
+.fb_link:hover {
+    background-position: -34px 0;
+}
+
+.twitter_link {
+    background-position: -64px -25px;
+}
+
+.twitter_link:hover {
+    background-position: -64px 0;
+}
+
+.gplus_link {
+    background-position: -94px -25px;
+}
+
+.gplus_link:hover {
+    background-position: -94px 0;
+}
+
+.about_delivery {
+    display: block;
+    position: relative;
+}
+
+.delivery_icon {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: -121px 0;
+    float: left;
+}
+
+.delivery_wrapper {
+    display: block;
+    position: relative;
+    float: left;
+    width: 225px;
+    margin-left: 10px;
+}
+
+.delivery_desc, .delivery_label {
+    font-size: 12px;
+    margin: 0;
+}
+
+.delivery_label {
+    font-weight: bold;
+}
+
+.about_contact {
+    display: display;
+    position: relative;
+    margin-top: 10px;
+}
+
+.contact_icon {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: -121px -64px;
+    float: left;
+}
+
+.contact_wrapper{
+    display: block;
+    position: relative;
+    float: left;
+    width:225px;
+    margin-left:10px;
+    margin-top: 8px;
+}
+
+.contact_desc, .contact_label {
+    font-size: 12px;
+    margin: 0;
+}
+
+.contact_label {
+    font-weight: bold;
+}
+
+.about_email {
+    display: display;
+    position: relative;
+    margin-top: 10px;
+}
+
+.email_icon {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: -121px -126px;
+    float: left;
+}
+
+.email_wrapper{
+    display: block;
+    position: relative;
+    float: left;
+    width:225px;
+    margin-left:10px;
+}
+
+.email_label, .email_desc {
+    font-size: 12px;
+    margin: 0;
+}
+.email_label {
+    font-weight: bold;
+}
+
+.company_label, .company_desc {
+    font-size: 13px;
+    margin: 0;
+}
+
+.company_label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.diosa_content {
+    display: block;
+    position: relative;
+    width: 960px;
+    margin: 10px auto;
+}
+
+.clearB{
+    clear: both;
+}

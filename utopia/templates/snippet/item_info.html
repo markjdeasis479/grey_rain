@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<div class="diosa_item">
+    <div class="diosa_item_img">
+        <img class="shown_img" src="../{{ item.img_sm }}" />
+        <div class="diosa_item_slider">
+            <a href="#" class="slider_prev">
+                <img src="{% static 'images/prev_btn.png' %}" />
+            </a>
+            <div class="diosa_slider_view">
+                <img src="../{{ item.img_sm }}" />
+                {% if item.img_extra1 %}
+                <img src="../{{ item.img_extra1 }}" />
+                {% endif %}
+                {% if item.img_extra2 %}
+                <img src="../{{ item.img_extra2}}" />
+                {% endif %}
+                {% if item.img_extra3 %}
+                <img src="../{{ item.img_extra3}}" />
+                {% endif %}
+                <div class="clearB"></div>
+            </div>
+            <a href="#" class="slider_next">
+                <img src="{% static 'images/next_btn.png' %}" />
+            </a>
+            <div class="clearB"></div>
+        </div>
+    </div>
+    <div class="diosa_item_info">
+        <label class="diosa_item_label">{{ item.name }}</label>
+        <p class="diosa_item_desc">{{ item.long_desc }}</p>
+        <div class="diosa_item_wrapper">
+            <div class="diosa_item_section">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="50%" align="right">Rental:</td>
+                        <td width="50%" align="left"><span class="rental_price">Php {{ item.rental_price }}</span></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" align="right">Sale:</td>
+                        <td width="50%" align="left"><span class="rental_price">Php {{ item.selling_price }}</span></td>
+                    </tr>
+                    {% if variant %}
+                        <tr>
+                            <td width="50%" align="right">Available size:</td>
+                            <td width="50%" align="left">
+                                <select class="item_size">
+                                    {% for v in variant %}
+                                    <option value="{{ v.id }}">{{ v.size }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div class="diosa_item_section">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="50%" align="right">Available Quantity:</td>
+                        <td width="50%" align="left"><span class="item_available_qty">{{ qty }}</span></td>
+                    </tr>
+                    <tr>
+                        <td width="50%" align="right">Quantity to rent/buy:</td>
+                        <td width="50%" align="left">
+                            <span class="item_qty">
+                                <input type="text" value="1"/>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%" align="right">Share:</td>
+                        <td width="50%" align="left"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clearB"></div>
+        </div>
+        <div class="diosa_item_wrapper">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="50%" align="center">
+                        <input type="submit" class="diosa_add_cart" value="Add to Rental Cart"/>
+                    </td>
+                    <td width="50%" align="center">
+                        <input type="submit" class="diosa_add_cart" value="Add to Wishlist"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50%" align="center">
+                        <input type="submit" class="diosa_add_cart" value="Add to Sale Cart"/>
+                    </td>
+                    <td width="50%" align="center">
+                        <input type="submit" class="diosa_add_cart" value="Send inquiry"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="clearB"></div>
+</div>

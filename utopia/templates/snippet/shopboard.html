@@ -1,0 +1,44 @@
+<div class="diosa_shopboard">
+    <div class="diosa_shop_menu">
+        {% if category|length > 0 %}
+        {% for i in category %}
+        <div class="shop_menu_grp">
+            <span class="menu_grp_label">{{ i.name }}</span>
+            <ul>
+                {% for j in i.subcategory %}
+                <li>
+                    <div class="shop_disc"></div><a href="/category/subcategory/{{ j.id }}">{{ j.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="diosa_shop_items">
+        <div class="shop_tab_list">
+            <a href="#" class="tab_active">New Arrivals</a>
+            <a href="#">Popular</a>
+            <a href="#">Best Seller</a>
+        </div>
+        <div class="shop_item_list">
+            {% for item in new_arrivals %}
+                <div class="shop_item">
+                    <a href="#">
+                        <img src="{{ item.img_sm.url }}" />
+                    </a>
+                    <p class="item_name">
+                        <a href="#">{{ item.name }}</a>
+                    </p>
+                    <p class="item_desc">{{ item.short_desc }}</p>
+                    <p class="rental_price">Price: <var>P{{ item.rental_price }}</var></p>
+                    <a href="#">
+                        <div class="add_to_cart">Add to rental cart</div>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="clearB"></div>
+        </div>
+    </div>
+    <div class="clearB"></div>
+</div>

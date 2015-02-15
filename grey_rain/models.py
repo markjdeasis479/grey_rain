@@ -43,11 +43,11 @@ class Item(models.Model):
 	item_date_added=models.DateField(verbose_name='Date Added', auto_now=True)
 	item_subcategory=models.ForeignKey(ItemSubcategory)
 	item_rental_day=models.IntegerField(verbose_name='Rental Day')
-	item_img_sm=models.ImageField(verbose_name='Image(Small)', upload_to='templates/item_sm', blank=True)
-	item_img_lg=models.ImageField(verbose_name='Image(Large)', upload_to='templates/item_lg', blank=True)
-	item_img_extra1=models.ImageField(verbose_name='Image Extra 1', upload_to='templates/item_extra_1', blank=True)
-	item_img_extra2=models.ImageField(verbose_name='Image Extra 2', upload_to='templates/item_extra_2', blank=True)
-	item_img_extra3=models.ImageField(verbose_name='Image Extra 3', upload_to='templates/item_extra_3', blank=True)
+	item_img_sm=models.ImageField(verbose_name='Image(Small)', upload_to='utopia/templates/item_sm', blank=True)
+	item_img_lg=models.ImageField(verbose_name='Image(Large)', upload_to='utopia/templates/item_lg', blank=True)
+	item_img_extra1=models.ImageField(verbose_name='Image Extra 1', upload_to='utopia/templates/item_extra_1', blank=True)
+	item_img_extra2=models.ImageField(verbose_name='Image Extra 2', upload_to='utopia/templates/item_extra_2', blank=True)
+	item_img_extra3=models.ImageField(verbose_name='Image Extra 3', upload_to='utopia/templates/item_extra_3', blank=True)
 	def __str__(self):
 		return self.item_id+':'+self.item_name;
 	
@@ -59,3 +59,12 @@ class ItemVariant(models.Model):
 	ivar_qty=models.IntegerField(verbose_name='Quantity', default=0)
 	def __str__(self):
 		return self.ivar_id+':'+self.ivar_size;
+
+class Carousel(models.Model):
+    caro_id=models.AutoField(verbose_name='ID', primary_key=True)
+    caro_name=models.CharField(verbose_name='Name', max_length=36)
+    caro_desc=models.TextField(verbose_name='Description', max_length=100)
+    caro_img=models.ImageField(verbose_name='Image', upload_to='utopia/templates/carousel')
+    caro_link=models.URLField(verbose_name='Landing page')
+    def __str__(self):
+        return self.caro_id.__str__()+' '+self.caro_name;

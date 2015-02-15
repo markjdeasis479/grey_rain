@@ -1,0 +1,59 @@
+.diosa_dashboard {
+    display: block;
+    position: relative;
+}
+
+.diosa_dashboard_nav {
+    display: block;
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    background-color: #FFF;
+    border-radius: 5px;
+    float: left;
+}
+
+.diosa_dashboard_nav ul {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.diosa_dashboard_nav li {
+    padding: 3px 0 3px 10px;
+}
+
+.diosa_dashboard_nav label {
+    display: block;
+    position: relative;
+    border-bottom: dotted 1px #CCC;
+}
+
+.diosa_dashboard_container {
+    display: block;
+    position: relative;
+    width: 710px;
+    margin-left: 10px;
+    padding: 10px;
+    float: left;
+    border-radius: 5px;
+    background-color: #f7f7f9;
+}
+
+.dashboard_title {
+    display: inline-block;
+    position: absolute;
+    background-color: #FFF;
+    border-top-right-radius: 5px;
+    padding: 5px 5px;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.dashboard_msg {
+    text-align: center;
+    padding: 5px 0;
+}

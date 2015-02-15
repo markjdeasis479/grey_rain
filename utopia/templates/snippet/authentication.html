@@ -1,0 +1,110 @@
+<div class="diosa_authentication">
+    {% if do_param == '' %}
+        <p class="diosa_auth_label">Authentication</p>
+        <div class="diosa_register">
+            <form method="POST" action="?do=register">
+                {% csrf_token %}
+                <p>Create an account</p>
+                <label for="email_register">Email address:</label>
+                <input type="text" name="email_register" id="email_register"/>
+                <div class="diosa_button_wrapper">
+                    <input type="submit" value="Create an account" id="submit_register"/>
+                    <div class="account_icon"></div>
+                </div>
+            </form>
+        </div>
+        <div class="diosa_login">
+            <form method="POST" action="?do=login">
+                {% csrf_token %}
+                <p>Already registered?</p>
+                <label for="email_login">Email address</label>
+                <input type="text" name="email_login" id="email_login" />
+                <label for="password_login">Password</label>
+                <input type="password" name="password_login" id="password_login" />
+                <a href="#">Forgot password?</a>
+                <div class="diosa_button_wrapper">
+                    <input type="submit" value="Sign in" id="submit_login"/>
+                    <div class="signin_icon"></div>
+                </div>
+            </form>
+        </div>
+    {% elif do_param == 'register' %}
+        <div class="diosa_register_account">
+            <p>Create an account</p>
+            <form method="POST" action="../register/">
+                {% csrf_token %}
+                <input type="hidden" name="id_email_address" value="{{ email_register }}"/>
+                <div class="diosa_fld_grp spacer">
+                    <div class="diosa_fld_item">
+                        <label>Username:</label>
+                        <input type="text" name="id_username" id="id_username"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>First Name:</label>
+                        <input type="text" name="id_fname" id="id_fname"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Birthdate:</label>
+                        <input type="text" name="id_birthdate" id="id_birthdate"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Address:</label>
+                        <textarea name="id_address" id="id_address"></textarea>
+                    </div>
+                </div>
+
+                <div class="diosa_fld_grp spacer">
+                    <div class="diosa_fld_item">
+                        <label>Password:</label>
+                        <input type="password" name="id_password_1" id="id_password_1"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Middle Name:</label>
+                        <input type="text" name="id_mname" id="id_mname"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Gender:</label>
+                        <div class="diosa_fld_divider">
+                            <input type="radio" name="id_gender" id="id_gender" checked><label>Male</label>
+                            <input type="radio" name="id_gender" id="id_gender"><label>Female</label>
+                        </div>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Telephone number:</label>
+                        <input type="text" name="id_telephone_number" id="id_telephone_number"/>
+                    </div>
+                </div>
+
+                <div class="diosa_fld_grp">
+                    <div class="diosa_fld_item">
+                        <label>Retype Password:</label>
+                        <input type="password" name="id_password_2" id="id_password_2"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Last Name:</label>
+                        <input type="text" name="id_lname" id="id_lname"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Marital Status:</label>
+                        <select name="id_marital_status" id="id_marital_status">
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Widower">Windower</option>
+                        </select>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <label>Mobile number:</label>
+                        <input type="text" name="id_mobile_number" id="id_mobile_number"/>
+                    </div>
+                    <div class="diosa_fld_item">
+                        <input type="submit" value="Register">
+                        <input type="reset"/>
+                    </div>
+                </div>
+            </form>
+            <div class="clearB"></div>
+        </div>
+    {% endif %}
+    <div class="clearB"></div>
+</div>

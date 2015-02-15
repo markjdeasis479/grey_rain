@@ -1,0 +1,174 @@
+<div class="utopia_register_wrapper">
+    <p class="utopia_register_header">Registration is as easy 1 2 3 . . .</p>
+    <div class="utopia_register_step">
+        <div class="utopia_register_box">
+            <div class="utopia_circle utopia_register_active">1</div>
+            <div class="utopia_desc">Fill up this registration form.</div>
+            <div class="clearB"></div>
+        </div>
+        <div class="utopia_register_spacer"></div>
+        <div class="utopia_register_box">
+            <div class="utopia_circle">2</div>
+            <div class="utopia_desc">Type the validation code.</div>
+            <div class="clearB"></div>
+        </div>
+        <div class="utopia_register_spacer"></div>
+        <div class="utopia_register_box">
+            <div class="utopia_circle">3</div>
+            <div class="utopia_desc">Review you account.</div>
+            <div class="clearB"></div>
+        </div>
+        <div class="clearB"></div>
+    </div>
+    <div class="utopia_registration_form">
+        <form method="POST">
+            {% csrf_token %}
+            <frameset>
+                <legend>Login details</legend>
+                <div class="utopia_register_field">
+                    <label for="cust_email">Email Address:</label>
+                    <input type="text" name="cust_email" id="cust_email"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_password_1">Password:</label>
+                    <input type="password" name="cust_password_1" id="cust_password_1"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_password_2">Retype Password:</label>
+                    <input type="password" name="cust_password_2" id="cust_password_2"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+            </frameset>
+            <frameset>
+                <legend>Personal Information</legend>
+                <div class="utopia_register_field">
+                    <label for="cust_prefix">Prefix:</label>
+                    <select name="cust_prefix" id="cust_prefix">
+                        <option value="" disabled></option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mrs.">Mrs.</option>
+                    </select>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_first_name">First Name:</label>
+                    <input type="text" name="cust_first_name" id="cust_first_name"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_middle_name">Middle Name:</label>
+                    <input type="text" name="cust_middle_name" id="cust_middle_name"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_last_name">Last Name:</label>
+                    <input type="text" name="cust_last_name" id="cust_last_name"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_gender">Gender:</label>
+                    <select name="cust_gender" id="cust_gender">
+                        <option value="" disabled></option>
+                        <option value="Male">Male</option>
+                        <option vlue="Female">Female</option>
+                    </select>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_birth_date">Birth date:</label>
+                    <input type="text" name="cust_birth_date" id="cust_birth_date"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+            </frameset>
+            <frameset>
+                <legend>Contact Details</legend>
+                <div class="utopia_register_field">
+                    <label for="cust_phone_number">Phone Number:</label>
+                    <input type="text" name="cust_phone_number" id="cust_phone_number"/>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_alt_phone">Alternate Phone Number:</label>
+                    <input type="text" name="cust_alt_phone" id="cust_alt_phone"/>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_home_address">Home Address:</label>
+                    <textarea name="cust_home_address" id="cust_home_address"></textarea>
+                    <span class="error_box">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg"></span>
+                        <div class="clearB"></div>
+                    </span>
+                    <div class="clearB"></div>
+                </div>
+                <div class="utopia_register_field">
+                    <label for="cust_alt_home">Provincial Address:</label>
+                    <textarea name="cust_alt_home" id="cust_alt_home"></textarea>
+                    <div class="clearB"></div>
+                </div>
+            </frameset>
+            <div class="utopia_register_footnote">
+                <label>By clicking submit, you agree to our <a href="#">Terms and Conditions</a>.</label>
+                <div class="utopia_footnote_btn">
+                    <input type="submit" value="Submit" id="cust_register_submit" name="cust_register_submit" />
+                    <input type="reset" value="Reset" name="cust_register_reset" id="cust_register_reset"/>
+                    <div class="clearB"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+.diosa_item {
+    display: block;
+    position: relative;
+    background-color: #FFF;
+    border-radius: 5px;
+    padding: 20px;
+    width: 920px;
+}
+
+.diosa_item_img {
+    display: block;
+    position: relative;
+    float: left;
+    width: 160px;
+}
+
+.diosa_item_img .shown_img {
+    display: block;
+    width: 160px;
+    height: 160px;
+    border: solid 1px #CCC;
+    border-radius: 5px;
+}
+
+.diosa_item_info {
+    display: block;
+    position: relative;
+    float: left;
+    width: 740px;
+    margin-left: 20px;
+}
+
+.diosa_item_label {
+    font-weight: bold;
+    text-shadow: 1px 1px #ECECEC;
+    font-size: 18px;
+}
+
+
+.diosa_add_cart, .diosa_add_wishlist {
+    display: block;
+    position: relative;
+    width: 200px;
+    background-color: #538799;
+    color: #FFF;
+    padding: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 10px 5px 0;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.diosa_add_cart:hover, .diosa_add_wishlist:hover {
+    background-color: #E25786;
+}
+
+.diosa_item_slider {
+    display: block;
+    position: relative;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.slider_next, .slider_prev {
+    display: block;
+    position: relative;
+    width: 10px;
+    height: 60px;
+    line-height: 60px;
+    border: solid 1px #DEDEDE;
+    text-align: center;
+    float: left;
+}
+
+.diosa_slider_view {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 60px;
+    margin: 0 5px;
+    float: left;
+    overflow: hidden;
+}
+
+.diosa_slider_view img {
+    display: block;
+    position: relative;
+    float: left;
+    width: 57px;
+    height: 58px;
+    margin: 0 3px;
+    border: solid 1px #AEAEAE;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.diosa_item_section {
+    display: block;
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+.diosa_item_desc {
+    margin: 5px 0;
+}
+
+.diosa_item_wrapper {
+    display: block;
+    position: relative;
+    margin: 5px 0;
+}
+
+.diosa_item_sdection, .diosa_item_segment {
+    display: block;
+    position: relative;
+}
+
+.rental_price, .selling_price, .item_size, .item_available_qty {
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+
+
+.item_qty input, .item_size{
+    width: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 10px;
+    text-align: right;
+    border: solid 1px #CCC;
+    border-radius: 3px;
+}
+
+.item_size {
+    width: 200px;
+}

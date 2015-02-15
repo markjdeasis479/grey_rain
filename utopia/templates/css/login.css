@@ -1,0 +1,355 @@
+.diosa_authentication {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.diosa_auth_label {
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: dotted 1px #CCC;
+    color: #454545;
+    margin: 0 10px 10px;
+}
+
+.diosa_register, .diosa_login {
+    display: block;
+    position: relative;
+    width: 438px;
+    margin: 0 10px 10px;
+    padding: 10px;
+    float: left;
+    border: solid 1px #CCC;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.diosa_register p, .diosa_login p {
+    border-bottom: solid 1px #CCC;
+    margin: 0;
+    padding: 10px 0 10px;
+    font-weight: bold;
+    color: #454545;
+}
+
+.diosa_authentication label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin:5px 0;
+    font-size: 12px;
+}
+
+.diosa_authentication input[type=text], .diosa_authentication input[type=password] {
+    border: solid 1px #CCC;
+    height: 20px;
+    display: block;
+    position: relative;
+    width: 240px;
+    padding-left: 5px;
+    margin: 5px 0;
+}
+
+.diosa_authentication input[type=submit], .diosa_authentication input[type=reset]  {
+    display: block;
+    position: relative;
+    width: 245px;
+    border: solid 1px #538799;
+    background-color: #538799;
+    color: #FFF;
+    padding: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: all 0.5s ease;
+}
+
+.diosa_login a{
+    display: block;
+    position: relative;
+    text-decoration: underline;
+}
+
+.diosa_button_wrapper {
+    display: block;
+    position: relative;
+}
+
+.account_icon, .signin_icon {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    z-index: 100;
+    top: 7px;
+}
+
+.diosa_authentication input[type=submit]:hover {
+    background-color: #E25786;
+    border-color: #E25786;
+}
+
+.account_icon{
+    background-position: 0 -57px;
+    left: 45px;
+}
+
+.signin_icon {
+    background-position: -20px -57px;
+    left: 80px;
+}
+
+.diosa_authentication .error_msg {
+    border-bottom: medium none;
+    color: red;
+    font-size: 11px;
+    font-style: italic;
+    padding: 5px 0 0;
+}
+
+.diosa_register_account {
+    display: block;
+    position: relative;
+    width: 920px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 10px 20px;
+}
+
+.diosa_register_account p{
+    border-bottom: solid 1px #CCC;
+    margin: 0;
+    padding: 0 0 10px;
+    font-weight: bold;
+    color: #454545;
+}
+
+.diosa_fld_grp {
+    display: block;
+    position: relative;
+    width: 300px;
+    float: left;
+}
+
+.diosa_fld_item {
+    display: block;
+    position: relative;
+}
+
+.diosa_fld_item label {
+    font-weight: normal;
+}
+
+.diosa_fld_item input[type=text], .diosa_fld_item input[type=password], .diosa_fld_item select, .diosa_fld_item textarea {
+    border: solid 1px #CCC;
+    border-radius: 3px;
+    background-color: rgba(240, 240, 240, 0.8);
+    width: 240px;
+}
+
+.diosa_fld_item textarea {
+    height: 80px;
+}
+
+.diosa_fld_divider {
+    display: block;
+    position: relative;
+}
+
+.diosa_fld_divider input[type=checkbox], .diosa_fld_divider label {
+    display: inline-block;
+    position: relative;
+}
+
+.diosa_fld_item input:focus, .diosa_fld_item select:focus {
+    background-color: #FFF;
+}
+
+.diosa_fld_item input[type=submit], .diosa_fld_item input[type=reset] {
+    display: inline-block;
+    width: 120px;
+    margin-top: 75px;
+    margin-left: 5px;
+}
+
+.spacer {
+    margin-right: 10px;
+}
+
+.error_wrap label, .error_wrap li{
+    font-weight: normal;
+    color: firebrick;
+    font-size: 12px;
+}
+
+.error_wrap ul {
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+
+
+.utopia_register_wrapper {
+    display: block;
+    posiiton: relative;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #FFF;
+    
+}
+
+.utopia_register_header {
+    padding: 5px 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: dashed 1px #CCC;
+}
+
+.utopia_register_step {
+    display: block;
+    position: relative;
+    padding: 5px 0;
+}
+
+.utopia_register_box {
+    display: block;
+    position: relative;
+    width: 310px;
+    float: left;
+}
+
+.utopia_register_spacer {
+    display: block;
+    position: relative;
+    width: 5px;
+    height: 36px;
+    float: left;
+}
+
+.utopia_circle {
+    display: block;
+    position: relative;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+    background-color: #588799;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+}
+
+.utopia_register_active {
+    background-color: #E25786;
+}
+
+.utopia_desc {
+    display: block;
+    position: relative;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+}
+
+.utopia_register_field {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+}
+
+.utopia_register_field label, .utopia_register_field .error_box {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 20px;
+    line-height: 30px;
+    text-align: right;
+    float: left;
+}
+
+.error_box .error_icon {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    background-color: red;
+    color: #FFF;
+    text-align: center;
+    float: left;
+}
+
+.error_box .error_msg {
+    display: block;
+    position: relative;
+    float: left;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 5px;
+}
+
+.utopia_register_field input, .utopia_register_field select, .utopia_register_field textarea{
+    display: block;
+    position: relative;
+    border: solid 1px #CCC;
+    border-radius: 5px;
+    width: 200px;
+    float: left;
+    height: 20px;
+    margin-left: 10px;
+    padding: 0 5px;
+}
+
+
+.utopia_register_field select {
+    width: 212px;
+}
+
+.utopia_register_field textarea {
+    height: 60px;
+}
+
+.utopia_register_field .error_box {
+    display: none;
+    text-align: left;
+    margin-left: 10px;
+    color: red;
+    width: 320px;
+}
+
+.utopia_register_footnote {
+    display: block;
+    position: relative;
+    margin-top: 15px;
+}
+
+.utopia_register_footnote label {
+    display: block;
+    position: relative;
+    margin-left: 40px;
+}
+
+
+.utopia_footnote_btn {
+    display: block;
+    position: relative;
+    margin-left: 210px;
+    margin-top: 10px;
+}
+
+.utopia_register_footnote input {
+    display: block;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: solid 1px #CCC;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+}

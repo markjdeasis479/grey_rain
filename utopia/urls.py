@@ -7,4 +7,13 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^login/', 'grey_rain.views.login'),
+    url(r'^$', 'grey_rain.views.index'),
 )
+
+#----- Addded code from legacy
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns();
+#----- Added code from legacy
