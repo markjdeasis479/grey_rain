@@ -1,44 +1,49 @@
 <div class="diosa_shopboard">
-    <div class="diosa_shop_menu">
-        {% if category|length > 0 %}
-        {% for i in category %}
-        <div class="shop_menu_grp">
-            <span class="menu_grp_label">{{ i.name }}</span>
-            <ul>
-                {% for j in i.subcategory %}
-                <li>
-                    <div class="shop_disc"></div><a href="/category/subcategory/{{ j.id }}">{{ j.name }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endfor %}
-        {% endif %}
-    </div>
-    <div class="diosa_shop_items">
-        <div class="shop_tab_list">
-            <a href="#" class="tab_active">New Arrivals</a>
-            <a href="#">Popular</a>
-            <a href="#">Best Seller</a>
-        </div>
-        <div class="shop_item_list">
-            {% for item in new_arrivals %}
-                <div class="shop_item">
-                    <a href="#">
-                        <img src="{{ item.img_sm.url }}" />
-                    </a>
-                    <p class="item_name">
-                        <a href="#">{{ item.name }}</a>
-                    </p>
-                    <p class="item_desc">{{ item.short_desc }}</p>
-                    <p class="rental_price">Price: <var>P{{ item.rental_price }}</var></p>
-                    <a href="#">
-                        <div class="add_to_cart">Add to rental cart</div>
-                    </a>
-                </div>
-            {% endfor %}
+	<div class="diosa_dashboard">
+		<div class="diosa_dashleft">
+			<a href="#">
+				<div class="diosa_dashmenu dashmenu_active">
+					<span class="dash_new_items"></span>
+					<span>New items</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="diosa_dashmenu adjust_marL1">
+                    <span class="dash_promo_items"></span>
+					<span>Promo items</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="diosa_dashmenu adjust_marL1">
+                    <span class="dash_hot_items"></span>
+					<span>Hot items</span>
+				</div>
+			</a>
+			<div class="clearB"></div>
+		</div>
+		<div class="diosa_dashright">
+			<div class="diosa_user_tool">
+                <span>
+                    <div class="user_bg"></div>
+                    <a href="/login/">SIGN IN</a>
+                </span>
+                <span>
+                    <div class="cart_bg"></div>
+                    <a href="#">CART (0)</a>
+                </span>
+            </div>
+            <div class="diosa_search_tool">
+                <form>
+                    {% csrf_token %}
+                    <input type="text" name="searchbox" placeholder="Search">
+                    <a href="#"><div class="search_bg"></div></a>
+                </form>
+            </div>
             <div class="clearB"></div>
-        </div>
-    </div>
-    <div class="clearB"></div>
+		</div>
+		<div class="clearB"></div>
+	</div>
+	<div class="diosa_shopcontent">
+		
+	</div>
 </div>

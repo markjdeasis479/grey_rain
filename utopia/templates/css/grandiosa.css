@@ -51,18 +51,22 @@ a {
 .diosa_user_tool span {
     font-size: 12px;
     margin: auto 6px;
+    display: inline-block;
+    width: 80px;
 }
 
 .diosa_search_tool {
     display: block;
     position: relative;
     width: 200px;
+    float: left;
 }
 
 .diosa_user_tool {
     display: block;
     position: relative;
-    margin-bottom: 5px;
+    float: left;
+    margin-top: 5px;
 }
 
 .diosa_bottom_tool {
@@ -80,7 +84,7 @@ a {
 .diosa_search_tool input {
     display:block;
     position: relative;
-    width: 95%;
+    width: 195px;
     height:25px;
     border: solid 1px #CCC;
     margin: 0;

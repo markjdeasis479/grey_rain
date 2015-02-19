@@ -1,132 +1,100 @@
 .diosa_shopboard {
-    display: block;
-    position: relative;
-    width: 100%;
-    margin: 10px auto;
+	display: block;
+	position: relative;
+	margin-top: 10px;
+	background-color: #FFF;
+	padding: 10px;
 }
 
-.diosa_shop_menu {
-    display: block;
-    position: relative;
-    width: 160px;
-    float: left;
+.diosa_dashboard {
+	display: block;
+	position: relative;
 }
 
-.diosa_shop_items {
-    display: block;
-    position: relative;
-    width: 780px;
-    float: left;
-    margin-left: 20px;
+.diosa_dashleft {
+	display: block;
+	position: relative;
+	float: left;
 }
 
-
-.shop_menu_grp {
-    display: block;
-    position: relative;
-    margin-bottom: 20px;
+.diosa_dashright {
+	display: block;
+	position: relative;
+	float: right;
+	margin-top: 5px;
 }
 
-.menu_grp_label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #555;
+.diosa_dashmenu {
+	display: block;
+	position: relative;
+	float: left;
+	border: solid 1px #E25786;
+	padding: 5px;
+	width: 145px;
 }
 
-.shop_menu_grp ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.diosa_dashmenu img{
+	width: 24px;
+	height: 24px;
 }
 
-.shop_menu_grp li {
-    margin: 0;
-    border-bottom: dotted 1px #CCC;
-    padding: 5px 0 5px 10px;
+.diosa_shopcontent {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100px;
+	border: solid 1px #588799;
+	margin-top: -1px;
 }
 
-.shop_menu_grp li a {
-    color: #538799;
-}
-
-.shop_disc {
+.dash_new_items {
     display: inline-block;
     position: relative;
-    width: 6px;
-    height: 6px;
-    border-radius: 2px;
-    background-color: #538799;
-    margin-right: 10px;
-    margin-bottom: 2px;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: 0 -177px;
 }
 
-.shop_menu_grp li:hover .shop_disc {
-    background-color: #E25786;
-}
-
-.shop_menu_grp li:hover a {
-    color: #E25786;
-}
-
-.shop_tab_list {
-    display: block;
-    position: relative;
-}
-
-.shop_tab_list a {
-    font-size: 16px;
-    font-weight: bold;
-    color: #538799;
-    margin-right: 10px;
-}
-
-.shop_tab_list .tab_active, .shop_tab_list a:hover {
-    color: #E25786;
-}
-
-.shop_item_list {
-    display: block;
-    position: relative;
-}
-
-.shop_item {
-    display: block;
-    position: relative;
-    width: 175px;
-    margin: 10px;
-    float: left;
-}
-
-.shop_item img {
-    width: 175px;
-    height:175px;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    box-shadow: 1px 1px 3px #ccc;
-}
-
-.shop_item .item_name {
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-.shop_item var {
-    text-align: right;
-    font-style: normal;
-}
-
-.shop_item p {
-    margin: 0;
-}
-
-.shop_item .add_to_cart {
-    display: block;
-    position: relative;
+.dashmenu_active, .diosa_dashmenu:hover {
     background-color: #588799;
+    border-color: #588799;
     color: #FFF;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
+}
+
+
+.dashmenu_active .dash_new_items, .diosa_dashmenu:hover .dash_new_items {
+    background-position: 1px -154px;
+}
+
+.dash_promo_items {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: -22px -176px;
+}
+
+
+.diosa_dashmenu:hover .dash_promo_items {
+    background-position: -22px -152px;
+}
+
+
+.dash_hot_items {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/grandiosa_img_utils.png');
+    background-position: -50px -176px;
+}
+
+.diosa_dashmenu:hover .dash_hot_items {
+    background-position: -50px -153px;
+}
+
+.adjust_marL1 {
+	margin-left: -1px;
 }
