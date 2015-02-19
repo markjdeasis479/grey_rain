@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^login/', 'grey_rain.views.login'),
+    url(r'^register/', 'grey_rain.views.register'),
     url(r'^$', 'grey_rain.views.index'),
 )
 

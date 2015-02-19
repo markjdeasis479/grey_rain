@@ -124,7 +124,7 @@ jQuery(document).ready(function(){
             _CUST_PASSWORD_2.parent('div').find('.error_msg').html('Password must be 6 characters or more.');
             is_valid=false;
         }
-        else if (_CUST_PASSWORD_1.val()==_CUST_PASSWORD_2.val()) {
+        else if (_CUST_PASSWORD_1.val()!=_CUST_PASSWORD_2.val()) {
             _CUST_PASSWORD_2.parent('div').find('.error_box').fadeIn(500);
             _CUST_PASSWORD_2.parent('div').find('.error_msg').html('Password does not match');
             is_valid=false;

@@ -5,14 +5,23 @@
         </div>
         <div class="diosa_header_right">
             <div class="diosa_user_tool">
-                <span><div class="cart_bg"></div><a href="#">CART</a></span> | <span><div class="user_bg"></div><a href="/login/">MY ACCOUNT</a></span>
+                <span>
+                    <div class="user_bg"></div>
+                    <a href="/login/">SIGN IN</a>
+                </span>
+                <span>
+                    <div class="cart_bg"></div>
+                    <a href="#">CART (0)</a>
+                </span>
             </div>
             <div class="diosa_search_tool">
                 <form>
+                    {% csrf_token %}
                     <input type="text" name="searchbox" placeholder="Search">
                     <a href="#"><div class="search_bg"></div></a>
                 </form>
             </div>
+            <div class="clearB"></div>
         </div>
         <div class="clearB"></div>
     </div>

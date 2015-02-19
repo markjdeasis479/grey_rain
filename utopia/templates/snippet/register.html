@@ -2,26 +2,39 @@
     <p class="utopia_register_header">Registration is as easy 1 2 3 . . .</p>
     <div class="utopia_register_step">
         <div class="utopia_register_box">
+        {% if user_register == 1 %}
             <div class="utopia_circle utopia_register_active">1</div>
+        {% else %}
+            <div class="utopia_circle">1</div>
+        {%  endif %}
             <div class="utopia_desc">Fill up this registration form.</div>
             <div class="clearB"></div>
         </div>
         <div class="utopia_register_spacer"></div>
         <div class="utopia_register_box">
+        {% if user_register == 2 %}
+            <div class="utopia_circle utopia_register_active">2</div>
+        {% else %}
             <div class="utopia_circle">2</div>
+        {% endif %}
             <div class="utopia_desc">Type the validation code.</div>
             <div class="clearB"></div>
         </div>
         <div class="utopia_register_spacer"></div>
         <div class="utopia_register_box">
+        {% if user_register == 3 %}
+            <div class="utopia_circle utopia_register_active">3</div>
+        {% else %}
             <div class="utopia_circle">3</div>
+        {% endif %}
             <div class="utopia_desc">Review you account.</div>
             <div class="clearB"></div>
         </div>
         <div class="clearB"></div>
     </div>
+    {% if user_register == 1%}
     <div class="utopia_registration_form">
-        <form method="POST">
+        <form method="POST" action="?user_register=1">
             {% csrf_token %}
             <frameset>
                 <legend>Login details</legend>
@@ -171,4 +184,21 @@
             </div>
         </form>
     </div>
+    {% elif user_register == 2 %}
+        <div class="utopia_verification_form">
+            <form method="POST" action="?user_register=2">
+                {% csrf_token %}
+                <input type="hidden" name="user_email" value="{{ user_email }}" />
+                <p class="verification_msg">To validate the registration you just made, a verification code has been sent thru  <span class="user_email">{{ user_email }}</span>.</p>
+                {% if verification_error %}
+                    <div class="verification_error">
+                        <span class="error_icon">!</span>
+                        <span class="error_msg">Invalid verification code. Please try again.</span>
+                    </div>
+                {% endif %}
+                <label for="user_verification_code">Verification code: </label> <input type="text" name="user_verification_code" id="user_verification_code"/>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    {% endif %}
 </div>

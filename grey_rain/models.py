@@ -16,14 +16,14 @@ class Customer(models.Model):
 	cust_home_address=models.CharField(max_length=64, verbose_name='Home Address')
 	cust_alt_home=models.CharField(max_length=64, verbose_name='Provincial Address')
 	def __str__(self):
-		return self.cust_id+':'+self.cust_email;
+		return self.cust_email;
 	
 class ItemCategory(models.Model):
 	ic_id=models.AutoField(primary_key=True)
 	ic_name=models.CharField(max_length=32, verbose_name='Name')
 	ic_desc=models.TextField(verbose_name='Description')
 	def __str__(self):
-		return self.ic_id+':'+self.ic_name;
+		return self.ic_name;
 
 class ItemSubcategory(models.Model):
 	isc_id=models.AutoField(primary_key=True)
@@ -31,7 +31,7 @@ class ItemSubcategory(models.Model):
 	isc_desc=models.TextField(max_length=32, verbose_name='Description')
 	isc_category=models.ForeignKey(ItemCategory)
 	def __str__(self):
-		return self.isc_id+':'+self.isc_name;
+		return self.isc_name;
 		
 class Item(models.Model):
 	item_id=models.AutoField(primary_key=True)
@@ -49,7 +49,7 @@ class Item(models.Model):
 	item_img_extra2=models.ImageField(verbose_name='Image Extra 2', upload_to='utopia/templates/item_extra_2', blank=True)
 	item_img_extra3=models.ImageField(verbose_name='Image Extra 3', upload_to='utopia/templates/item_extra_3', blank=True)
 	def __str__(self):
-		return self.item_id+':'+self.item_name;
+		return self.item_name;
 	
 class ItemVariant(models.Model):
 	ivar_id=models.AutoField(primary_key=True)
@@ -58,7 +58,7 @@ class ItemVariant(models.Model):
 	ivar_color=models.CharField(max_length=36, verbose_name='Color', blank=True)
 	ivar_qty=models.IntegerField(verbose_name='Quantity', default=0)
 	def __str__(self):
-		return self.ivar_id+':'+self.ivar_size;
+		return self.ivar_size;
 
 class Carousel(models.Model):
     caro_id=models.AutoField(verbose_name='ID', primary_key=True)
@@ -67,4 +67,4 @@ class Carousel(models.Model):
     caro_img=models.ImageField(verbose_name='Image', upload_to='utopia/templates/carousel')
     caro_link=models.URLField(verbose_name='Landing page')
     def __str__(self):
-        return self.caro_id.__str__()+' '+self.caro_name;
+        return self.caro_name;

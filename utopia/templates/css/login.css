@@ -190,7 +190,7 @@
 
 .utopia_register_wrapper {
     display: block;
-    posiiton: relative;
+    position: relative;
     padding: 10px;
     margin: 10px auto;
     background-color: #FFF;
@@ -270,7 +270,7 @@
     float: left;
 }
 
-.error_box .error_icon {
+.error_icon {
     display: block;
     position: relative;
     width: 20px;
@@ -352,4 +352,58 @@
     width: 100px;
     height: 25px;
     cursor: pointer;
+}
+
+.utopia_verification_form {
+    display: block;
+    position: relative;
+    margin: 10px 0;
+}
+
+.utopia_verification_form p {
+    margin: 20px 0 10px 0;
+    padding: 0;
+}
+
+.utopia_verification_form label {
+    width: 200px;
+    text-align: right;
+    margin-left: 10px;
+}
+
+.utopia_verification_form .user_email {
+    color: #588799;
+}
+
+.utopia_verification_form input[type="text"] {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 20px;
+    border-radius: 5px;
+    border: solid 1px #CCC;
+    padding: 0 5px;
+    margin-left: 10px;
+}
+
+.utopia_verification_form input[type="submit"] {
+    display: inline-block;
+    position: relative;
+    border: solid 1px #CCC;
+    border-radius: 5px;
+    padding: 0 5px;
+    height: 20px;
+    width: 80px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.verification_error {
+    color: red;
+    margin: 5px 0 5px 5px;
+    padding: 0;
+}
+
+.verification_error .error_msg {
+    margin-left: 5px;
 }
