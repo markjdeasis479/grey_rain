@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register/', 'grey_rain.views.register'),
     url(r'^login/', 'grey_rain.views.login'),
+    url(r'logout/', 'grey_rain.views.logout'),
+    url(r'^myaccount/', 'grey_rain.views.myaccount'),
     url(r'^$', 'grey_rain.views.index'),
 )
 

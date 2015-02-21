@@ -170,14 +170,19 @@
     position: relative;
     float: left;
     width: 94px;
-    height: 25px;
-    line-height: 25px;
+    height: 26px;
+    line-height: 28px;
     text-align: center;
     border: solid 1px #CCC;
     border-radius: 5px;
     background-color: #588799;
     color: #FFF;
     font-size: 13px;
+}
+
+.diosa_item_button img {
+    width: 14px;
+    height: 14px;
 }
 
 .option_expand {

@@ -5,8 +5,9 @@ from django.shortcuts import render, render_to_response;
 from django.template import RequestContext;
 from django.views.decorators.csrf import ensure_csrf_cookie;
 import json;
+from datetime import datetime, timedelta;
 #models
-from grey_rain.models import Item, ItemCategory, ItemSubcategory, ItemVariant, Customer, Carousel;
+from grey_rain.models import Item, ItemCategory, ItemSubcategory, ItemVariant, Customer, Carousel, Sessionizer;
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def index(request):
             'name': new_arrivals[i].item_name,
             'img': new_arrivals[i].item_img_sm.url.replace('utopia', ''),
             'short_desc': new_arrivals[i].item_short_desc,
-            'price': new_arrivals[i].item_price
+            'price': '{0:.2f}'.format(round(new_arrivals[i].item_price, 2)),
         };
         new_arrivals_arr.append(new_arrivals_item);
     #--- NEW ARRIVALS
@@ -57,7 +58,16 @@ def index(request):
         category_arr.append(category_item);
     #--- CATEGORIES
 
-    return render_to_response('index.html', {'new_arrivals': new_arrivals_arr, 'carousel': carousel_arr, 'category': category_arr}, RequestContext(request));
+    #--- SESSIONIZER
+    session_customer=None;
+    session_token=None;
+    if 'cust_id' in request.session and 'token_id' in request.session:
+        session_customer=Customer.objects.all().filter(cust_id=request.session['cust_id'])[0];
+        session_token=request.session['token_id'];
+    #--- SESSIONIZER
+    return render_to_response('index.html', {'new_arrivals': new_arrivals_arr, 'carousel': carousel_arr,
+                                             'category': category_arr, 'session_cust': session_customer},
+                                             RequestContext(request));
 #--- VIEW: INDEX
 
 #--- VIEW: REGISTER
@@ -105,11 +115,23 @@ def login(request):
     #Evaluate credentials
     else:
         #Display error in login form
-        if Customer.objects.all().filter(cust_email=_cust_email, cust_password=_cust_password).count() == 0:
+        _sign_cust=Customer.objects.all().filter(cust_email=_cust_email, cust_password=_cust_password);
+        if _sign_cust.count() == 0:
             return render_to_response('login.html', {'login_error': True}, RequestContext(request));
         #Redirect to user account page
         else:
-            return render_to_response('myaccount.html', {}, RequestContext(request));
+            #Clear recent session
+            request.session.flush();
+            #set session expiry to browser closing
+            request.session.set_expiry(0);
+            request.session['cust_id']=_sign_cust[0].cust_id;
+            request.session['token_id']=generateToken(request.session['cust_id']);
+            _new_session=Sessionizer(session_user=_sign_cust[0], session_token=request.session['token_id'],
+                                     session_date_time_expired=datetime.now()+timedelta(days=1));
+            _new_session.save();
+            #redirect to myaccount
+            #return HttpResponse('cust_id' in request.session);
+            return HttpResponseRedirect('/myaccount');
 #--- VIEW: LOGIN
         
 #--- VIEW: MY ACCOUNT
@@ -117,3 +139,13 @@ def myaccount(request):
     return render_to_response('myaccount.html', {}, RequestContext(request));
 #--- VIEW: MY ACCOUNT
 
+#--- VIEW: LOG OUT
+def logout(request):
+    request.session.flush();
+    return HttpResponseRedirect('/');
+#--- VIEW: LOG OUT
+
+def generateToken(customer_id):
+    token=datetime.strftime(datetime.now(), '%Y%m%d%H%M%S');
+    token*=customer_id;
+    return hex(int(token));

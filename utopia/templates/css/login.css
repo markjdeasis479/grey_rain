@@ -464,6 +464,16 @@
     text-decoration: underline;
 }
 
+.login_field_wrapper img {
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 15px;
+    left: 23px;
+    z-index: 1;
+}
+
 .login_failed {
     display: block;
     position: relative;

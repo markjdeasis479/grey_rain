@@ -68,3 +68,13 @@ class Carousel(models.Model):
     caro_link=models.URLField(verbose_name='Landing page')
     def __str__(self):
         return self.caro_name;
+
+class Sessionizer(models.Model):
+    session_id=models.AutoField(verbose_name='ID', primary_key=True)
+    session_token=models.CharField(verbose_name='Token', max_length=32)
+    session_user=models.ForeignKey(Customer);
+    session_date_time_created=models.DateTimeField(verbose_name='Date/ Time created', auto_now=True)
+    session_date_time_expired=models.DateTimeField(verbose_name='Date/ Time expired', blank=True)
+    def __str__(self):
+        return self.session_token;
+    

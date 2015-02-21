@@ -25,6 +25,7 @@
 			<div class="diosa_user_tool">
                 <span>
                     <div class="user_bg"></div>
+                    {% if not session_cust %}
                     <a href="#" class="diosa_user_account">
                         <span>MY ACCOUNT</span>
                         <div class="option_expand"></div>
@@ -42,6 +43,28 @@
                             </li>
                         </ul>
                     </div>
+                    {% else %}
+                    <a href="#" class="diosa_user_account">
+                        <span>Hi, {{ session_cust.cust_first_name }} {{ session_cust.cust_last_name }}!</span>
+                        <div class="option_expand"></div>
+                    </a>
+                    <div class="diosa_user_option">
+                        <ul>
+                            <li>
+                                <a href="/register/">My account</a>
+                            </li>
+                            <li>
+                                <a href="/login/">My cart</a>
+                            </li>
+                            <li>
+                                <a href="/cart/">View order tracking</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
                 </span>
                 <span>
                     <div class="cart_bg"></div>
@@ -73,8 +96,14 @@
                     <div class="clearB"></div>
                 </div>
                 <div class="diosa_item_button">
-                    <a href="#{{ item.id }}" style="margin-right: 5px;">Add to cart</a>
-                    <a href="#{{ item.id }}">Send inquiry</a>
+                    <a href="#{{ item.id }}" style="margin-right: 5px;">
+                        <img src="../templates/images/icon_cart.png" />
+                        <span>Add to cart</span>
+                    </a>
+                    <a href="#{{ item.id }}">
+                        <img src="../templates/images/icon_inquiry.png" />
+                        <span>Send inquiry</span>
+                    </a>
                     <div class="clearB"></div>
                 </div>
             </div>
