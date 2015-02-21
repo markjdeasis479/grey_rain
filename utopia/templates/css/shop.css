@@ -2,8 +2,6 @@
 	display: block;
 	position: relative;
 	margin-top: 10px;
-	background-color: #FFF;
-	padding: 10px;
 }
 
 .diosa_dashboard {
@@ -31,6 +29,9 @@
 	border: solid 1px #E25786;
 	padding: 5px;
 	width: 145px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #FFF;
 }
 
 .diosa_dashmenu img{
@@ -39,12 +40,16 @@
 }
 
 .diosa_shopcontent {
-	display: block;
+	display: none;
 	position: relative;
 	width: 100%;
-	height: 100px;
-	border: solid 1px #588799;
+	border-top: solid 1px #588799;
 	margin-top: -1px;
+    background-color: #FFF;
+}
+
+.shopboard_active {
+    display: block;
 }
 
 .dash_new_items {
@@ -86,15 +91,133 @@
     display: inline-block;
     position: relative;
     width: 24px;
-    height: 24px;
+    height: 23px;
     background-image: url('../images/grandiosa_img_utils.png');
-    background-position: -50px -176px;
+    background-position: -50px -175px;
 }
 
 .diosa_dashmenu:hover .dash_hot_items {
     background-position: -50px -153px;
 }
 
+.diosa_item_row {
+    display: block;
+    position: relative;
+}
+
+.diosa_item {
+    display: block;
+    position: relative;
+    width: 208px;
+    margin: 10px;
+    padding: 5px;
+    border: solid 1px #CCC;
+    float: left;
+    border-radius: 10px;
+}
+
+.diosa_item_img {
+    display: block;
+    position: relative;
+    width: 198px;
+    height: 168px;
+    margin: 5px auto;
+}
+
+.diosa_item_label {
+    margin: 0 5px;
+    padding: 0;
+    font-size: 13px;
+}
+
+.diosa_item_price {
+    display: block;
+    position: relative;
+    padding: 0 5px;
+}
+
+.diosa_item_desc {
+    margin: 5px;
+    padding: 0;
+    font-size: 13px;
+}
+
+.diosa_price_label{
+    display: block;
+    position: relative;
+    float: left;
+    width: 88px;
+    font-size: 13px;
+}
+
+.diosa_price_item {
+    display: block;
+    position: relative;
+    float: right;
+    width: 110px;
+    text-align: right;
+    font-size: 13px;
+}
+
+.diosa_item_button {
+    display: block;
+    position: relative;
+    padding: 5px;
+}
+
+.diosa_item_button a {
+    display: block;
+    position: relative;
+    float: left;
+    width: 94px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: solid 1px #CCC;
+    border-radius: 5px;
+    background-color: #588799;
+    color: #FFF;
+    font-size: 13px;
+}
+
+.option_expand {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-top: solid 5px #000;
+    border-right: solid 5px transparent;
+    border-left: solid 5px transparent;
+}
+
+.diosa_user_option {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background-color: #FFF;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.diosa_user_option ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.diosa_user_option li {
+    width: 110px;
+    padding: 5px;
+    border-top: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
+    margin-top: -1px;
+}
+
+.diosa_item_button a:hover {
+    background-color: #E25786;
+}
+
 .adjust_marL1 {
-	margin-left: -1px;
+	margin-left: 1px;
 }

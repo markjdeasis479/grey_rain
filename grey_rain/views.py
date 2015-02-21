@@ -25,13 +25,23 @@ def index(request):
 
     #--- NEW ARRIVALS
     new_arrivals=Item.objects.all();
+    new_arrivals_arr=[];
+    for i in range(new_arrivals.count()):
+        new_arrivals_item={
+            'id': new_arrivals[i].item_id,
+            'name': new_arrivals[i].item_name,
+            'img': new_arrivals[i].item_img_sm.url.replace('utopia', ''),
+            'short_desc': new_arrivals[i].item_short_desc,
+            'price': new_arrivals[i].item_price
+        };
+        new_arrivals_arr.append(new_arrivals_item);
     #--- NEW ARRIVALS
 
     #--- CATEGORIES
     category_arr=[];
     category=ItemCategory.objects.all();
     for i in range(category.count()):
-        subcategory=ItemSubcategory.objects.all().filter(category=category[i].ic_id);
+        subcategory=ItemSubcategory.objects.all().filter(isc_category=category[i].ic_id);
         subcategory_arr=[];
         for j in range(subcategory.count()):
             subcategory_item={
@@ -47,7 +57,7 @@ def index(request):
         category_arr.append(category_item);
     #--- CATEGORIES
 
-    return render_to_response('index.html', {'new_arrivals': new_arrivals, 'carousel': carousel_arr, 'category': category_arr}, RequestContext(request));
+    return render_to_response('index.html', {'new_arrivals': new_arrivals_arr, 'carousel': carousel_arr, 'category': category_arr}, RequestContext(request));
 #--- VIEW: INDEX
 
 #--- VIEW: REGISTER
@@ -73,14 +83,37 @@ def register(request):
                 cust_middle_name=_cust_middle_name, cust_last_name=_cust_last_name, cust_gender=_cust_gender, cust_birth_date=_cust_birth_date,
                 cust_phone_number=_cust_phone_number, cust_alt_phone=_cust_alt_phone, cust_home_address=_cust_home_address, cust_alt_home=_cust_alt_home);
             new_customer.save();
-        return render_to_response('login.html', {'user_register': 2, 'user_email': _cust_email}, RequestContext(request));
+        return render_to_response('register.html', {'user_register': 2, 'user_email': _cust_email}, RequestContext(request));
     #--- Verify user
     elif register_mode == '2':
         _verify_code=request.POST['user_verification_code'];
         _user_email=request.POST['user_email'];
-        return render_to_response('login.html', {'user_register': 2, 'user_email': _user_email, 'verification_error': 'Invalid verification code.'}, RequestContext(request));
+        return render_to_response('register.html', {'user_register': 2, 'user_email': _user_email, 'verification_error': 'Invalid verification code.'}, RequestContext(request));
     #--- Display registration form
     else:
-        return render_to_response('login.html', {'user_register': 1}, RequestContext(request));
+        return render_to_response('register.html', {'user_register': 1}, RequestContext(request));
 
 #--- VIEW: LOGIN
+@ensure_csrf_cookie
+def login(request):
+    _cust_email=request.POST.get('cust_email', '');
+    _cust_password=request.POST.get('cust_password', '');
+    _cust_keep_login=request.POST.get('cust_keep_login', '');
+    #--- Display login form
+    if len(_cust_email) == 0:
+        return render_to_response('login.html', {}, RequestContext(request));
+    #Evaluate credentials
+    else:
+        #Display error in login form
+        if Customer.objects.all().filter(cust_email=_cust_email, cust_password=_cust_password).count() == 0:
+            return render_to_response('login.html', {'login_error': True}, RequestContext(request));
+        #Redirect to user account page
+        else:
+            return render_to_response('myaccount.html', {}, RequestContext(request));
+#--- VIEW: LOGIN
+        
+#--- VIEW: MY ACCOUNT
+def myaccount(request):
+    return render_to_response('myaccount.html', {}, RequestContext(request));
+#--- VIEW: MY ACCOUNT
+

@@ -52,7 +52,6 @@ a {
     font-size: 12px;
     margin: auto 6px;
     display: inline-block;
-    width: 80px;
 }
 
 .diosa_search_tool {
@@ -66,7 +65,7 @@ a {
     display: block;
     position: relative;
     float: left;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .diosa_bottom_tool {
@@ -84,7 +83,7 @@ a {
 .diosa_search_tool input {
     display:block;
     position: relative;
-    width: 195px;
+    width: 193px;
     height:25px;
     border: solid 1px #CCC;
     margin: 0;

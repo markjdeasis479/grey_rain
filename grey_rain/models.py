@@ -28,7 +28,7 @@ class ItemCategory(models.Model):
 class ItemSubcategory(models.Model):
 	isc_id=models.AutoField(primary_key=True)
 	isc_name=models.CharField(max_length=32, verbose_name='Name')
-	isc_desc=models.TextField(max_length=32, verbose_name='Description')
+	isc_desc=models.TextField(verbose_name='Description')
 	isc_category=models.ForeignKey(ItemCategory)
 	def __str__(self):
 		return self.isc_name;
@@ -38,7 +38,7 @@ class Item(models.Model):
 	item_code=models.CharField(max_length=8, verbose_name='Code')
 	item_name=models.CharField(max_length=32, verbose_name='Name')
 	item_price=models.DecimalField(decimal_places=2, max_digits=10, default=0.00, verbose_name='Price')
-	item_short_desc=models.CharField(max_length=32, verbose_name='Short Description')
+	item_short_desc=models.CharField(max_length=100, verbose_name='Short Description')
 	item_long_desc=models.TextField(verbose_name='Long Description')
 	item_date_added=models.DateField(verbose_name='Date Added', auto_now=True)
 	item_subcategory=models.ForeignKey(ItemSubcategory)

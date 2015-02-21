@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^register/', 'grey_rain.views.register'),
+    url(r'^login/', 'grey_rain.views.login'),
     url(r'^$', 'grey_rain.views.index'),
 )
 

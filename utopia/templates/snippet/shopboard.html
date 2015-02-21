@@ -25,7 +25,23 @@
 			<div class="diosa_user_tool">
                 <span>
                     <div class="user_bg"></div>
-                    <a href="/login/">SIGN IN</a>
+                    <a href="#" class="diosa_user_account">
+                        <span>MY ACCOUNT</span>
+                        <div class="option_expand"></div>
+                    </a>
+                    <div class="diosa_user_option">
+                        <ul>
+                            <li>
+                                <a href="/register/">Register</a>
+                            </li>
+                            <li>
+                                <a href="/login/">Login</a>
+                            </li>
+                            <li>
+                                <a href="/cart/">My cart</a>
+                            </li>
+                        </ul>
+                    </div>
                 </span>
                 <span>
                     <div class="cart_bg"></div>
@@ -43,7 +59,76 @@
 		</div>
 		<div class="clearB"></div>
 	</div>
-	<div class="diosa_shopcontent">
-		
+	<div class="diosa_shopcontent shopboard_active" id="shopboard_new_arrivals">
+        {%if new_arrivals %}
+        <div class="diosa_item_row">
+            {% for item in new_arrivals %}
+            <div class="diosa_item">
+                <img src="{{ item.img }}" class="diosa_item_img" />
+                <p class="diosa_item_label">{{ item.name }}</p>
+                <p class="diosa_item_desc">{{ item.short_desc}}</p>
+                <div class="diosa_item_price">
+                    <div class="diosa_price_label">Rental price:</div>
+                    <div class="diosa_price_item">Php {{ item.price }}</div>
+                    <div class="clearB"></div>
+                </div>
+                <div class="diosa_item_button">
+                    <a href="#{{ item.id }}" style="margin-right: 5px;">Add to cart</a>
+                    <a href="#{{ item.id }}">Send inquiry</a>
+                    <div class="clearB"></div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearB"></div>
+        </div>
+        {% endif %}
+	</div>
+    <div class="diosa_shopcontent" id="shopboard_promo_items">
+        {%if new_arrivals %}
+        <div class="diosa_item_row">
+            {% for item in new_arrivals %}
+            <div class="diosa_item">
+                <img src="{{ item.img }}" class="diosa_item_img" />
+                <p class="diosa_item_label">{{ item.name }}</p>
+                <p class="diosa_item_desc">{{ item.short_desc}}</p>
+                <div class="diosa_item_price">
+                    <div class="diosa_price_label">Rental price:</div>
+                    <div class="diosa_price_item">Php {{ item.price }}</div>
+                    <div class="clearB"></div>
+                </div>
+                <div class="diosa_item_button">
+                    <a href="#{{ item.id }}" style="margin-right: 5px;">Add to cart</a>
+                    <a href="#{{ item.id }}">Send inquiry</a>
+                    <div class="clearB"></div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearB"></div>
+        </div>
+        {% endif %}
+	</div>
+    <div class="diosa_shopcontent" id="shopboard_hot_items">
+        {%if new_arrivals %}
+        <div class="diosa_item_row">
+            {% for item in new_arrivals %}
+            <div class="diosa_item">
+                <img src="{{ item.img }}" class="diosa_item_img" />
+                <p class="diosa_item_label">{{ item.name }}</p>
+                <p class="diosa_item_desc">{{ item.short_desc}}</p>
+                <div class="diosa_item_price">
+                    <div class="diosa_price_label">Rental price:</div>
+                    <div class="diosa_price_item">Php {{ item.price }}</div>
+                    <div class="clearB"></div>
+                </div>
+                <div class="diosa_item_button">
+                    <a href="#{{ item.id }}" style="margin-right: 5px;">Add to cart</a>
+                    <a href="#{{ item.id }}">Send inquiry</a>
+                    <div class="clearB"></div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearB"></div>
+        </div>
+        {% endif %}
 	</div>
 </div>

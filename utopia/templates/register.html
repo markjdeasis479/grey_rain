@@ -6,19 +6,18 @@
         <title>Grandiosa Boutique</title>
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="{% static 'css/grandiosa.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/carousel.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/shop.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.css' %}" />
         <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/shop.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
     </head>
     <body>
         <div class="diosa_home_wrapper">
             {% include 'snippet/header.html' %}
             <div class="diosa_content">
-                {% include 'snippet/carousel.html' %}
-                {% include 'snippet/shopboard.html' %}
+                {% include 'snippet/register.html' %}
             </div>
             {% include 'snippet/footer.html' %}
         </div>
