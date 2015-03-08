@@ -13,8 +13,8 @@ class Customer(models.Model):
 	cust_birth_date=models.DateField(verbose_name='Birth date')
 	cust_phone_number=models.CharField(max_length=20, verbose_name='Phone Number')
 	cust_alt_phone=models.CharField(max_length=20, verbose_name='Alt. Phone Number')
-	cust_home_address=models.CharField(max_length=64, verbose_name='Home Address')
-	cust_alt_home=models.CharField(max_length=64, verbose_name='Provincial Address')
+	cust_home_address=models.TextField(max_length=100, verbose_name='Home Address')
+	cust_alt_home=models.TextField(max_length=120, verbose_name='Provincial Address')
 	def __str__(self):
 		return self.cust_email;
 	

@@ -136,7 +136,84 @@ def login(request):
         
 #--- VIEW: MY ACCOUNT
 def myaccount(request):
-    return render_to_response('myaccount.html', {}, RequestContext(request));
+    _cust_id=request.session['cust_id'];
+    if _cust_id:
+        _my_acc=Customer.objects.all().filter(cust_id=_cust_id);
+        if _my_acc.count()==0:
+            return HttpResponseRedirect('/login');
+        else:
+            _my_acc=_my_acc[0];
+            _param_update=request.GET.get('update', '');
+            #Updates Customer Information
+            if _param_update == 'info':
+                #Form Fields
+                _fld_email=request.POST['account_email'];
+                _fld_prefix=request.POST['account_prefix'];
+                _fld_fname=request.POST['account_fname'];
+                _fld_mname=request.POST['account_mname'];
+                _fld_lname=request.POST['account_lname'];
+                _fld_bdate=request.POST['account_bdate'];
+                _fld_gender=request.POST['account_gender'];
+                _fld_phone=request.POST['account_phone'];
+                _fld_alt_phone=request.POST['account_alt_phone'];
+                _fld_address=request.POST['account_address'];
+                _fld_alt_address=request.POST['account_alt_address'];
+                #Customer Fields Update
+                _my_acc.cust_email=_fld_email;
+                _my_acc.cust_prefix=_fld_prefix;
+                _my_acc.cust_first_name=_fld_fname;
+                _my_acc.cust_middle_name=_fld_mname;
+                _my_acc.cust_last_name=_fld_lname;
+                _my_acc.cust_birth_date=_fld_bdate;
+                _my_acc.cust_gender=_fld_gender;
+                _my_acc.cust_phone_number=_fld_phone;
+                _my_acc.cust_alt_phone=_fld_alt_phone;
+                _my_acc.cust_home_address=_fld_address;
+                _my_acc.cust_alt_home=_fld_alt_address;
+                #Save changes
+                _my_acc.save();
+                _update_report={
+                    'userboard_update': 'Account information has been updated successfully.',
+                    'userboard_status': True,
+                };
+                return render_to_response('myaccount.html', _update_report, RequestContext(request));
+            #Updates Customer Password
+            elif _param_update == 'password':
+                #Form Fields
+                _fld_old_password=request.POST['account_old_password'];
+                _fld_new_password=request.POST['account_new_password'];
+                _update_report={};
+                if _fld_old_password == _my_acc.cust_password:
+                    _my_acc.cust_password=_fld_new_password;
+                    #Save changes
+                    _my_acc.save();
+                    _update_report={
+                        'userboard_update': 'New password has been updated successfully.',
+                        'userboard_status': True,
+                    };        
+                else:
+                    _update_report={
+                        'userboard_update': 'You have entered your current password incorrectly.',
+                        'userboard_status': False,
+                    };
+                return render_to_response('myaccount.html', _update_report, RequestContext(request));
+            else:        
+                _my_info={
+                    'email': _my_acc.cust_email,
+                    'prefix': _my_acc.cust_prefix,
+                    'fname': _my_acc.cust_first_name,
+                    'mname': _my_acc.cust_middle_name,
+                    'lname': _my_acc.cust_last_name,
+                    'bdate': _my_acc.cust_birth_date,
+                    'gender': _my_acc.cust_gender,
+                    'phone': _my_acc.cust_phone_number,
+                    'alt_phone': _my_acc.cust_alt_phone,
+                    'address': _my_acc.cust_home_address,
+                    'alt_address': _my_acc.cust_alt_home,
+                };
+                return render_to_response('myaccount.html', _my_info, RequestContext(request));
+    else:
+        return HttpResponseRedirect('/login');
 #--- VIEW: MY ACCOUNT
 
 #--- VIEW: LOG OUT
@@ -145,7 +222,9 @@ def logout(request):
     return HttpResponseRedirect('/');
 #--- VIEW: LOG OUT
 
+#--- HELPER: GENERATETOKEN
 def generateToken(customer_id):
     token=datetime.strftime(datetime.now(), '%Y%m%d%H%M%S');
     token*=customer_id;
     return hex(int(token));
+#--- HELPER: GENERATETOKEN

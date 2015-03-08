@@ -1,59 +1,160 @@
-.diosa_dashboard {
-    display: block;
+.diosa_userboard {
+    display: none;
     position: relative;
+    background-color: #FFF;
+    padding: 5px;
+    border-top: solid 1px #588799;
+    margin-top: -1px;
 }
 
-.diosa_dashboard_nav {
+
+.diosa_userboard legend {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+
+.utopia_account_field, .utopia_account_button {
+    display: block;
+    position: relative;
+    margin: 5px 0;
+}
+
+.utopia_account_button {
+    margin-left: 208px;
+}
+
+.utopia_account_field label {
     display: block;
     position: relative;
     width: 200px;
-    padding: 10px;
-    background-color: #FFF;
+    text-align: right;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+.utopia_account_field input, .utopia_account_field select {
+    display: block;
+    position: relative;
+    width: 240px;
+    float: left;
+    border-radius: 5px;
+    border: solid 1px #CCC;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+    background-color: #f8f8f8;
+}
+
+.utopia_account_field select {
+    width: 250px;
+}
+
+.utopia_account_field textarea {
+    display: block;
+    position: relative;
+    float: left;
+    width: 240px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 1px #CCC;
+    background-color: #f8f8f8;
+}
+
+.utopia_account_button input {
+    display: block;
+    position: relative;
+    width: 120px;
     border-radius: 5px;
     float: left;
+    color: #FFF;
+    background-color: #588799;
+    border: solid 1px transparent;
+    margin: 0 3px;
+    height: 25px;
+    cursor: pointer;
 }
 
-.diosa_dashboard_nav ul {
-    margin: 0 0 10px 0;
-    padding: 0;
-    list-style: none;
-}
-
-.diosa_dashboard_nav li {
-    padding: 3px 0 3px 10px;
-}
-
-.diosa_dashboard_nav label {
-    display: block;
+.error_box {
+    display: none;
     position: relative;
-    border-bottom: dotted 1px #CCC;
-}
-
-.diosa_dashboard_container {
-    display: block;
-    position: relative;
-    width: 710px;
+    width: 320px;
+    height: 20px;
+    line-height: 30px;
+    text-align: right;
+    float: left;
     margin-left: 10px;
-    padding: 10px;
-    float: left;
-    border-radius: 5px;
-    background-color: #f7f7f9;
 }
 
-.dashboard_title {
-    display: inline-block;
-    position: absolute;
-    background-color: #FFF;
-    border-top-right-radius: 5px;
-    padding: 5px 5px;
-    top: 0;
-    right: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-}
-
-.dashboard_msg {
+.error_icon {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    border-radius: 10px;
+    background-color: red;
+    color: #FFF;
     text-align: center;
-    padding: 5px 0;
+    float: left;
+}
+
+.success_icon {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    border-radius: 10px;
+    background-color: green;
+    color: #FFF;
+    text-align: center;
+    float: left;
+}
+
+.error_msg {
+    display: block;
+    position: relative;
+    float: left;
+    font-size: 13px;
+    height: 20px;
+    line-height: 24px;
+    margin-left: 5px;
+}
+
+.userboard_acc_report, .userboard_pw_report {
+    display: none;
+    margin: 10px 5px;
+    padding: 0;
+    color: red;
+}
+
+
+.userboard_update_error, .userboard_update_ok {
+    margin: 10px 20px;
+}
+
+.userboard_redirect {
+    display: block;
+    position: relative;
+    margin: 5px 20px 5px 45px;
+}
+
+.userboard_redirect a {
+    color: #588799;
+}
+
+#frm_account_pw {
+    display: none;
+}
+
+.shadow_leap {
+    display: none;
+}
+
+.userboard_active {
+    display: block;
 }

@@ -1,36 +1,283 @@
-<div class="diosa_dashboard">
-    <div class="diosa_dashboard_nav">
-        <label>ORDERS</label>
-        <ul>
-            <li><a href="#">My cart</a></li>
-            <li><a href="#">My orders</a></li>
-            <li><a href="#">My discount/ voucher</a></li>
-            <li><a href="#">My wishlist</a></li>
-            <li><a href="#">My messages</a></li>
-        </ul>
-        <label>SETTINGS</label>
-        <ul>
-            <li><a href="#">Personal information</a></li>
-            <li><a href="#">Log out</a></li>
-        </ul>
-    </div>
-    <div class="diosa_dashboard_container">
-    {% if show|length == 0 or show == "cart" %}
-        {% if not cart_item or cart_item|length == 0 %}
-            <div class="dashboard_title">My cart</div>
-            <div class="dashboard_msg">Your cart is empty.</div>
+<div class="diosa_shopboard">
+	<div class="diosa_dashboard">
+		<div class="diosa_dashleft">
+			<a href="#">
+				<div class="diosa_dashmenu dashmenu_active">
+					<span class="dash_new_items"></span>
+					<span>My account</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="diosa_dashmenu adjust_marL1">
+                    <span class="dash_promo_items"></span>
+					<span>My cart</span>
+				</div>
+			</a>
+			<a href="#">
+				<div class="diosa_dashmenu adjust_marL1">
+                    <span class="dash_hot_items"></span>
+					<span>View order tracker</span>
+				</div>
+			</a>
+			<div class="clearB"></div>
+		</div>
+		<div class="diosa_dashright">
+			<div class="diosa_user_tool">
+                <span>
+                    <div class="user_bg"></div>
+                    {% if not session_cust %}
+                    <a href="#" class="diosa_user_account">
+                        <span>MY ACCOUNT</span>
+                        <div class="option_expand"></div>
+                    </a>
+                    <div class="diosa_user_option">
+                        <ul>
+                            <li>
+                                <a href="/register/">Register</a>
+                            </li>
+                            <li>
+                                <a href="/login/">Login</a>
+                            </li>
+                            <li>
+                                <a href="/cart/">My cart</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <a href="#" class="diosa_user_account">
+                        <span>Hi, {{ session_cust.cust_first_name }} {{ session_cust.cust_last_name }}!</span>
+                        <div class="option_expand"></div>
+                    </a>
+                    <div class="diosa_user_option">
+                        <ul>
+                            <li>
+                                <a href="/register/">My account</a>
+                            </li>
+                            <li>
+                                <a href="/login/">My cart</a>
+                            </li>
+                            <li>
+                                <a href="/cart/">View order tracker</a>
+                            </li>
+                            <li>
+                                <a href="/logout">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </span>
+                <span>
+                    <div class="cart_bg"></div>
+                    <a href="#">CART (0)</a>
+                </span>
+            </div>
+            <div class="diosa_search_tool">
+                <form>
+                    {% csrf_token %}
+                    <input type="text" name="searchbox" placeholder="Search">
+                    <a href="#"><div class="search_bg"></div></a>
+                </form>
+            </div>
+            <div class="clearB"></div>
+		</div>
+		<div class="clearB"></div>
+	</div>
+	<div class="diosa_userboard userboard_active">
+        {% if userboard_update %}
+            {% if userboard_status == True %}
+            <div class="userboard_update_ok">
+                <span class="success_icon">/</span><span class="error_msg">{{ userboard_update }}</span>
+                <div class="clearB"></div>
+            </div>
+            {% else %}
+            <div class="userboard_update_error">
+                <span class="error_icon">!</span><span class="error_msg">{{ userboard_update }}</span>
+                <div class="clearB"></div>
+            </div>
+            {% endif %}
+            <p class="userboard_redirect">Click <a href="/myaccount">here</a> to view your account profile.</p>
         {% else %}
-            <table width="100%" cellspacing="0" cellpadding="0">
-                <thead>
-                    <td align="center">Quantity</td>
-                    <td align="center">Code</td>
-                    <td align="center">Name</td>
-                    <td align="center">Price</td>
-                    <td align="center">Total Price</td>
-                </thead>
-            </table>
+        <form method="POST" id="frm_account_pw" action="?update=password">
+            {% csrf_token %}
+            <p class="userboard_pw_report"></p>
+            <div class="utopia_account_field">
+                <label for="account_old_password">Password:</label>
+                <input type="password" name="account_old_password" id="account_old_password"/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_new_password">New Password:</label>
+                <input type="password" name="account_new_password" id="account_new_password" />
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_retype_password">Retype Password:</label>
+                <input type="password" name="account_retype_password" id="account_retype_password"/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_button">
+                <input type="submit" value="Save" id="btn_pw_save"/>
+                <input type="button" value="Cancel" id="btn_pw_cancel"/>
+                <div class="clearB"></div>
+            </div>
+        </form>
+        <form method="POST" id="frm_account_info" action="?update=info">
+            {% csrf_token %}
+            <p class="userboard_acc_report"></p>
+            <div class="utopia_account_field">
+                <label for="account_email">Email Address:</label>
+                <input type="text" name="account_email" id="account_email" value="{{ email }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_prefix">Prefix:</label>
+                <select name="account_prefix" id="account_prefix" disabled>
+                    <option value="Mr."{% if prefix == "Mr." %}selected{% endif %}>Mr.</option>
+                    <option value="Ms." {% if prefix == "Ms." %}selected{% endif %}>Ms.</option>
+                    <option value="Mrs." {% if prefix == "Mrs." %}selected{% endif %}>Mrs.</option>
+                </select>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_fname">First Name:</label>
+                <input type="text" name="account_fname" id="account_fname" value="{{ fname }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_mname">Middle Name:</label>
+                <input type="text" name="account_mname" id="account_mname" value="{{ mname }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_lname">Last Name:</label>
+                <input type="text" name="account_lname" id="account_lname" value="{{ lname }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_bdate">Birth date:</label>
+                <input type="text" name="account_bdate" id="account_bdate" value="{{ bdate }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_gender">Gender:</label>
+                <select name="account_gender" id="account_gender" disabled>
+                    <option value="Male" {% if gender == "Male" %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if gender == "Female" %}selected{% endif %}>Female</option>
+                </select>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_phone">Phone Number:</label>
+                <input type="text" name="account_phone" id="account_phone" value="{{ phone }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_alt_phone">Alt. Phone Number:</label>
+                <input type="text" name="account_alt_phone" id="account_alt_phone" value="{{ alt_phone }}" disabled/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_address">Address:</label>
+                <textarea name="account_address" id="account_address" disabled>{{ address }}</textarea>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_field">
+                <label for="account_alt_address">Alt. Address:</label>
+                <textarea name="account_alt_address" id="account_alt_address" disabled>{{ alt_address }}</textarea>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_button">
+                <input type="button" value="Update information" id="btn_update_info"/>
+                <input type="button" value="Update password" id="btn_update_password"/>
+                <span class="error_box">
+                    <span class="error_icon">!</span>
+                    <span class="error_msg"></span>
+                    <div class="clearB"></div>
+                </span>
+                <div class="clearB"></div>
+            </div>
+            <div class="utopia_account_button shadow_leap">
+                <input type="submit" value="Save" id="btn_update_save"/>
+                <input type="button" value="Cancel" id="btn_update_cancel"/>
+                <div class="clearB"></div>
+            </div>
+        </form>
         {% endif %}
-    {% endif %}
-    </div>
-    <div class="clearB"></div>
+	</div>
+    <div class="diosa_userboard" id="shopboard_promo_items">
+        
+	</div>
+    <div class="diosa_userboard" id="shopboard_hot_items">
+        
+	</div>
 </div>
